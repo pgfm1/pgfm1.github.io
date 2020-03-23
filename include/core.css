@@ -17,3 +17,44 @@ nav ul li {
     display: inline-block;
     list-style-type: none;
 }
+
+nav a {
+    color: blue;
+}
+
+nav a:visited {
+    color: blue;
+}
+
+footer {
+    font-size: 0.8em;
+    margin-top: 1em;
+}
+
+.link-meta {
+    font-size: 0.8em;
+}
+
+article h2 {
+    margin-bottom: 0.2em;
+}
+
+.article-meta {
+    font-size: 0.8em;
+    background-color: #fafafa;
+    padding: 0.2em;
+}
+
+.book-meta {
+    font-size: 0.8em;
+}
+
+.project {
+    margin-bottom: 0.2em;
+}
+
+.project-meta {
+    font-size: 0.8em;
+    background-color: #fafafa;
+    padding: 0.2em;
+}
