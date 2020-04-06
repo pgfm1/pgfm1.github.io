@@ -58,3 +58,11 @@ article h2 {
     background-color: #fafafa;
     padding: 0.2em;
 }
+
+.warning {
+    padding: 1em;
+    margin: 0.5em;
+    background-color: #fefefe;
+    border: 1px solid #F5A9A9;
+    font-size: 1em;
+}
