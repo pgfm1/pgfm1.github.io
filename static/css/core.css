@@ -57,6 +57,7 @@ nav a:visited {
 footer {
     font-size: 0.8em;
     margin-top: 1em;
+    font-family: monospace;
 }
 
 .link-meta {
