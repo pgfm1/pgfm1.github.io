@@ -4,40 +4,66 @@
         <link rel="stylesheet" href="static/css/core.css" type="text/css" />
     </head>
     <body>
+        <div id="wrapper">
         <header>
-            <h1>meager.io - projects</h1>
+            <h1>meager.io</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">home</a></li>
-                    <li><a href="thoughts.html">thoughts</a></li>
-                    <li><a href="reading.html">reading list</a></li>
-                    <li><a href="projects.html">projects</a></li>
+                    <li><a href="index.html">updates</a></li>
+                    <li><a href="zkd.html">zkd</a></li>
+                    <li><a href="projects.html">other projects</a></li>
                 </ul>
             </nav>
         </header>
         <main>
             <section>
-                These are my current technical projects:
-                <section>
-                    <h3 class="project">meager.io</h3>
-                    <div class="project-meta">html, web</div>
-                    <p>
-                        This website is a small personal project. It allows me to write in a non-professional setting and encourages me to play with more small exercises and projects. The site is deliberately starting in an extremely minimal format with semantic HTML and a very small amount of CSS. It is 100% static, and initially manually updated.
-                    </p>
-                    <p>
-                        Long-term I'm interested in building out my own simple static site generator so that I can do some basic templating, and write my articles using Markdown rather than HTML. I'm also interested in having that generator do aggregation based on tags, and potentially exploring features based on that.
-                    </p>
-                    <h3 class="project">meager-auth</h3>
-                    <div class="project-meta">scala, security, experiment</div>
-                    <p>
-                        Intended to be used as a module for other personal projects. I've managed to become completely indecisive as to how I structure this project, despite it not being particularly difficult. This project currently serves as a type of technical playground.
-                    </p>
-                </section>
+                <h3>meager.io [live, in-progress]</h3>
+                <span class="descriptor">vcs:<a href="https://github.com/pgfm1/pgfm1.github.io">git</a> -- [website]</span>
+                <p>
+                This website will always be a work in progress and subject to
+                sudden changes.
+                </p>
+            </section>
+
+            <section>
+                <h3>dotfiles [live, in-progress]</h3>
+                <span class="descriptor">vcs:<a href="https://github.com/pgfm1/dotfiles">git</a> -- [config, customization]</span>
+                <p>
+                Repository with my dotfiles and some additional setup 
+                information.
+                </p>
+            </section>
+
+            <section>
+                <h3>goose [design]</h3>
+                <span class="descriptor">vcs:n/a -- [utility, scala, db]</span>
+                <p>
+                Dead-simple database migration tool/library for Scala. Possibly
+                scoped to PostgreSQL support only. Geese migrate where I'm 
+                from.
+                </p>
+            </section>
+
+            
+            <section>
+                <h3>scripts [live, in-progress]</h3>
+                <span class="descriptor">vcs:<a href="https://git.sr.ht/~eidolon/scripts">git</a> -- [utility, customization]</span>
+                <p>
+                Repository with some scripts that are useful to me, and 
+                probably not useful to you. Updated very randomly.
+                </p>
             </section>
         </main>
         <footer>
-            <section>&lt;-----&gt;</section>
+            <section>
+                <ul>
+                    <li>&copy; pfm 2020</li>
+                    <li>&gt; <a href="https://git.sr.ht/~eidolon/">git.sr.ht</a></li>
+                    <li>&gt; <a href="https://github.com/pgfm1/pgfm1.github.io">website source</a></li>
+                </ul>
+            </section>
         </footer>
+        </div>
     </body>
 </html>
 

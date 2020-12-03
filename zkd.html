@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>meager.io - zkd</title>
+        <link rel="stylesheet" href="static/css/core.css" type="text/css" />
+    </head>
+    <body>
+        <div id="wrapper">
+        <header>
+            <h1>meager.io</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">updates</a></li>
+                    <li><a href="zkd.html">zkd</a></li>
+                    <li><a href="projects.html">other projects</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>zkd [status: infancy]</h2>
+            <span class="descriptor">main repo:<a href="https://git.sr.ht/~eidolon/zkd">git</a>, <a href="https://todo.sr.ht/~eidolon/zkd-issues">issues</a></span>
+            <section>
+                <p>
+                *This project currently lives within a single repository, but
+                may encompass several in the future.
+                </p>
+
+                <p>
+                zkd aims to re-envision how information is shared and move away
+                from the "web page" model. It is a slow-moving, experimental
+                project that will provide ways to serve, download, and render
+                data. The data model is inspired by the <a href="https://en.wikipedia.org/wiki/Zettelkasten">Zettelkasten</a> note taking methodology.
+                </p>
+
+                <p>
+                For detailed design information, please refer to the 
+                <a href="https://git.sr.ht/~eidolon/zkd">primary git repository on sr.ht</a> 
+                which contains the current design documentation. This page will
+                describe some notable aspects of zkd, and will be expanded to
+                include more detail (and possibly screenshots) as zkd takes
+                shape over time.
+                </p>
+
+                <h3>No Interactive Content</h3>
+                <p>
+                Scripting (e.g. JavaScript) is flat-out not supported. No 
+                content is interactive beyond the ability to download assets 
+                and follow links.
+                </p>
+
+                <h3>First-Class Mirroring Support</h3>
+                <p>
+                Information is often not large, and easy to cache. zkd 
+                currently has a goal to support complete domain mirroring and 
+                local browsing, with the ability to refresh from source. Many
+                types of content are (relatively) permanent and will not need
+                to be refresh. Content can be evicted trivially.
+                </p>
+
+                <h3>Inversion of Styling Control</h3>
+                <p>
+                The content author has little to no control over styling beyond
+                what Markdown offers. Users viewing the content have complete
+                control how they want to render their content, and will often
+                have a uniform configuration for all content (but with the 
+                ability to configure on a per-domain or dynamic basis). This 
+                control extends to assets -- users may not want to eagerly 
+                download and render things like images.
+                </p>
+                <p>
+                zkd may provide the ability for content authors to provide 
+                style hints, but users will always be able to ignore such 
+                hints.
+                </p>
+            </section>
+        </main>
+        <footer>
+            <section>
+                <ul>
+                    <li>&copy; pfm 2020</li>
+                    <li>&gt; <a href="https://git.sr.ht/~eidolon/">git.sr.ht</a></li>
+                    <li>&gt; <a href="https://github.com/pgfm1/pgfm1.github.io">website source</a></li>
+                </ul>
+            </section>
+        </footer>
+        </div>
+    </body>
+</html>
+
