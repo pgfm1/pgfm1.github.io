@@ -1,0 +1,145 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>meager.io - Automated builds for Scala projects on builds.sr.ht</title>
+        <link rel="stylesheet" href="../static/css/core.css" type="text/css" />
+    </head>
+    <body>
+        <div id="wrapper">
+        <header>
+            <h1>meager.io</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">updates</a></li>
+                    <li><a href="../zkd.html">zkd</a></li>
+                    <li><a href="../projects.html">other projects</a></li>
+                    <li><a href="../logs.html">logs</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>Automated builds for Scala projects on builds.sr.ht</h2>
+            <span class="descriptor">December 05, 2020</span>
+            <section>
+                <p>
+                <a href="https://builds.sr.ht">builds.sr.ht</a> is the 
+                automated build system provided by 
+                <a href="https://sourcehut.org/">sourcehut</a>, which I use for
+                most of my projects (git, lists, builds). It is based on simple
+                YAML manifests which describe the required environment and 
+                build steps. This build system is 
+                <a href="https://man.sr.ht/builds.sr.ht/">documented</a>, and
+                this article describes a specific configuration for Scala 
+                projects. This configuration will be executed on push.
+                </p>
+            </section>
+
+            <section>
+                <h3>Example build manifest</h3>
+                <p>
+                This file is called <span class="mono">.build.yml</span> and lives in the root 
+                directory of your repository. This example uses the build
+                definition from 
+                the <a href="https://git.sr.ht/~eidolon/goose">goose</a> 
+                project.
+                </p>
+<pre>
+image: alpine/edge
+packages:
+  - openjdk11
+  - sbt
+sources:
+  - https://git.sr.ht/~eidolon/goose
+tasks:
+  - prepare: |
+      mkdir -p "$HOME/.sbt/1.0/plugins"
+      echo 'addSbtPlugin("com.jsuereth" % "sbt-pgp" % "2.0.2")' &gt;&gt; "$HOME/.sbt/1.0/plugins/gpg.sbt"
+  - test: |
+      cd goose
+      sbt test
+</pre>
+                <h4>&gt; image and packages</h4>
+                <p>
+                builds.sr.ht maintains a set of 
+                <a href="https://man.sr.ht/builds.sr.ht/compatibility.md">supported build images</a>, 
+                one of which is <span class="mono">alpine/edge</span>. This is
+                sufficient for our builds - we need two dependencies:
+                </p>
+
+                <ul>
+                    <li>OpenJDK 11 (<span class="mono">openjdk11</span>)</li>
+                    <li>SBT (<span class="mono">sbt</span>)</li>
+                </ul>
+
+                <p>
+                The <span class="mono">packages</span> section of the manifest
+                ensures that those will be installed prior to executing the 
+                build scripts.
+                </p>
+
+                <h4>&gt; sources</h4>
+                <p>
+                This is where we pull the source of our project, which is 
+                required to execute a build. The https URL is read-only.
+                </p>
+
+                <h4>&gt; tasks</h4>
+                <p>
+                The <span class="mono">tasks</span> section defines an ordered
+                list of scripts to be evaluated. Since goose uses the
+                <a href="https://github.com/sbt/sbt-pgp">sbt-pgp</a> plugin and 
+                relies on global setup, I add a 
+                <span class="mono">prepare</span> task to ensure that is 
+                available.
+                </p>
+                <p>
+                At this point we can directly invoke 
+                <span class="mono">sbt</span> and the build will "just work".
+                If all tasks complete without failing, the build is marked
+                successful!
+                </p>
+            </section>
+
+            <section>
+                <h3>Signed Publication</h3>
+                <p>
+                In the above example, goose isn't actually publishing any
+                artifacts to the central repository. Normally we would need to
+                sign those artifacts with a PGP key. This is supported by the
+                <a href="https://builds.sr.ht/secrets">sr.ht secrets</a> tool, 
+                which manages secrets and allows you to inject them into your 
+                builds.
+                </p>
+                <p>
+                Once goose starts publishing, this article will be updated with
+                the modifications to the build script. Another article will 
+                also be drafted on publishing Scala projects in general.
+                </p>
+            </section>
+
+            <section>
+                <h3>Build Badges</h3>
+                <p>
+                Just visit the builds page for your project. The example for
+                goose is 
+                <span class="mono">https://builds.sr.ht/~eidolon/goose</span>.
+                The badge markdown (corresponding to the listed builds) is 
+                supplied on this page.
+                </p>
+            </section>
+        </main>
+        <footer>
+            <section>
+                <ul>
+                    <li>&copy; pfm 2020</li>
+                    <li>&gt; <a href="https://git.sr.ht/~eidolon/">git.sr.ht</a></li>
+                    <li>&gt; <a href="https://github.com/pgfm1/pgfm1.github.io">website source</a></li>
+                </ul>
+            </section>
+        </footer>
+        </div>
+    </body>
+</html>
+
+
+
