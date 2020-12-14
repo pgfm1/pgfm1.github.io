@@ -136,6 +136,7 @@ span.descriptor {
 
 .mono {
     font-family: monospace;
+    background-color: #eee;
 }
 
 pre {

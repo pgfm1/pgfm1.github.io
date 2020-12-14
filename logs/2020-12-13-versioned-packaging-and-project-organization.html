@@ -1,0 +1,108 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>meager.io - Versioned Packaging and Project Organization</title>
+        <link rel="stylesheet" href="../static/css/core.css" type="text/css" />
+    </head>
+    <body>
+        <div id="wrapper">
+        <header>
+            <h1>meager.io</h1>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">updates</a></li>
+                    <li><a href="../zkd.html">zkd</a></li>
+                    <li><a href="../projects.html">other projects</a></li>
+                    <li><a href="../logs.html">logs</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h2>Versioned Packaging and Project Organization</h2>
+            <span class="descriptor">December 13, 2020</span>
+            <section>
+                <p>
+                While doing some design for 
+                <a href="https://git.sr.ht/~eidolon/goose">goose</a> in my head 
+                the other day, I decided that <span class="mono">goose</span> and 
+                the rest of my libraries would employ <em>versioned packaging</em>. 
+                By this term, I mean that my <em>major</em> project versions will 
+                correspond to packages in my project to assist with version compatibility.
+                </p>
+            </section>
+
+            <section>
+                <h3>Example</h3>
+                <p>
+                Let's say that <span class="mono">goose</span> is version 2.1.6.
+                </p>
+                <ul>
+                    <li>Package: <span class="mono">io.meager.goose.v2</span></li>
+                    <li>Artifact Name: <span class="mono">goose-core-v2</span></li>
+                    <li>SBT: <span class="mono">io.meager %% goose-core-v2 % 2.1.6</span></li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>Why Bother?</h3>
+                <p>
+                This helps to avoid breakage, especially if one of my libraries is
+                used as a dependency in some other library. Some user might have 
+                <span class="mono">v1</span> as a transitive dependency, but 
+                <span class="mono">v2</span> brought in directly. These might not 
+                be compatible. By using versioned packaging, I can make those sets 
+                of classes compatible on the classpath.
+                </p>
+            </section>
+
+            <section>
+                <h3>Project Organization (Goose)</h3>
+                <p>
+                Goose will have modules for different database implementations.
+                For example, I intend to create <span class="mono">goose-doobie</span> 
+                and <span class="mono">goose-skunk</span>. I also need to think 
+                about their versions and their dependencies. Right now both of 
+                them are pre-1.0, but let's consider what the future might look like:
+                </p>
+                <ul>
+                    <li>doobie 0.9.x</li>
+                    <li>doobie 1.x</li>
+                    <li>skunk 0.0.22</li>
+                    <li>skunk 0.1.x</li>
+                </ul>
+                <p>
+                If necessary, I can organize the project in such a way that each
+                <span class="mono">goose</span> version can support multiple 
+                versions of each major database library.
+                </p>
+                <ul>
+                    <li>goose-doobie-090-v0</li>
+                    <li>goose-doobie-100-v0</li>
+                    <li>goose-skunk-0-v0</li>
+                    <li>goose-skunk-010-v0</li>
+                </ul>
+                <p>
+                The above isn't <em>necessarily</em> what I'll end up doing, but it
+                helps to represent what I'm going for. This combined with the package
+                versioning helps me to be extremely specific in what is supported,
+                and when support for some version ends. It probably isn't necessary
+                in all cases, but I think could be useful here.
+                </p>
+            </section>
+        </main>
+        <footer>
+            <section>
+                <ul>
+                    <li>&copy; pfm 2020</li>
+                    <li>&gt; <a href="https://git.sr.ht/~eidolon/">git.sr.ht</a></li>
+                    <li>&gt; <a href="https://github.com/pgfm1/pgfm1.github.io">website source</a></li>
+                </ul>
+            </section>
+        </footer>
+        </div>
+    </body>
+</html>
+
+
+
+

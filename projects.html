@@ -38,7 +38,7 @@
 
             <section>
                 <h3>goose [design]</h3>
-                <span class="descriptor">vcs:<a href="https://git.sr.ht/~eidolon/goose">git</a> -- [utility, scala, db]</span>
+                <span class="descriptor">vcs:<a href="https://git.sr.ht/~eidolon/goose">git</a> -- [library, utility, scala, db]</span>
                 <p>
                 Dead-simple database migration tool/library for Scala. Possibly
                 scoped to PostgreSQL support only. Geese migrate where I'm 
@@ -56,7 +56,36 @@
                 apps where I could do essentially this. Yes, I know this is not
                 particularly ground-breaking. I want a little more than a 
                 clipboard manager, and less than a note taking app. I also want
-                something to do, hence <span class="mono">pasta</span>!
+                something to do, hence <em>pasta</em>!
+                </p>
+            </section>
+
+            <section>
+                <h3>meager run mode (mrm) [design]</h3>
+                <span class="descriptor">vcs:<a href="#">n/a</a> -- [library, scala]</span>
+                <p>
+                Uniform handling of different run modes for Cats Effect. Here a
+                run mode is defined as something (usually at the top) that defines
+                how to choose, run, and evaluate some effect.
+                </p>
+                <p>
+                Let's say you draft a refactor of an existing feature: you might
+                want to run the new code in the background at the same time as the
+                old code, and then compare the results after both finish. After you
+                are confident in the feature, you may temporarily flip this 
+                relationship to enable the new feature fully but still compare
+                results.
+                </p>
+                <p>
+                Another case could be percentage-based distribution of requests,
+                but only one-or-the-other piece of code is chosen. Similarly, you
+                could simply alternate between two implementations. You could also
+                run both and select the result which becomes available first.
+                </p>
+                <p>
+                The <em>mrm</em> library also provides diagnostic output which can
+                be used (or ignored) for logging and statistics tracking for the
+                impacted code paths.
                 </p>
             </section>
             
